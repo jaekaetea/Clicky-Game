@@ -29,11 +29,12 @@ body {text-align: center;}
     margin-bottom: auto;
 }
 #instructions {
-    padding: 100px;
+    padding: 160px;
     background-image: url("background.png");
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
+    margin-bottom: 40px;
 }
 img {
     margin: 20px;
@@ -51,6 +52,7 @@ img:hover {
     background-image: url("background.png");
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 40px;
 }
 
 footer{
@@ -85,18 +87,18 @@ footer{
     </div>
 
     <div class="container">
-        <img src="https://loremflickr.com/cache/resized/65535_47980744442_824387e41d_n_175_175_nofilter.jpg" alt="cat" state="0" id="p1">
-        <img src="https://loremflickr.com/cache/resized/65535_47666569042_20ec59b4ef_n_175_175_nofilter.jpg" alt="cat" state="0" id="p2">
-        <img src="https://loremflickr.com/cache/resized/65535_48417808626_5ac77ce68f_m_175_175_nofilter.jpg" alt="cat" state="0" id="p3">
-        <img src="https://loremflickr.com/cache/resized/65535_48063959063_bd8c584c3c_m_175_175_nofilter.jpg" alt="cat" state="0" id="p4">
-        <img src="https://loremflickr.com/cache/resized/65535_40682177963_4b7cf45443_m_175_175_nofilter.jpg" alt="cat" state="0" id="p5">
-        <img src="https://loremflickr.com/cache/resized/65535_48289774571_82b4a430da_n_175_175_nofilter.jpg" alt="cat" state="0" id="p6">
-        <img src="https://loremflickr.com/cache/resized/65535_48437345841_29f832b944_m_175_175_nofilter.jpg" alt="cat" state="0" id="p7">
-        <img src="https://loremflickr.com/cache/resized/65535_48147336652_004a945a14_n_175_175_nofilter.jpg" alt="cat" state="0" id="p8">
-        <img src="https://loremflickr.com/cache/resized/65535_33896018938_82c7d91413_n_175_175_nofilter.jpg" alt="cat" state="0" id="p9">
-        <img src="https://loremflickr.com/cache/resized/65535_47993844162_30e0f5fcdb_175_175_nofilter.jpg" alt="cat" state="0" id="p10">
-        <img src="https://loremflickr.com/cache/resized/65535_48328922591_e664e57c07_n_175_175_nofilter.jpg" alt="cat" state="0" id="p11">
-        <img src="https://loremflickr.com/cache/resized/65535_46711948185_09086debf1_n_175_175_nofilter.jpg" alt="cat" state="0" id="p12">
+        <img src="https://loremflickr.com/cache/resized/65535_47980744442_824387e41d_n_175_175_nofilter.jpg" alt="cat" state="0" id="p0">
+        <img src="https://loremflickr.com/cache/resized/65535_47666569042_20ec59b4ef_n_175_175_nofilter.jpg" alt="cat" state="0" id="p1">
+        <img src="https://loremflickr.com/cache/resized/65535_48417808626_5ac77ce68f_m_175_175_nofilter.jpg" alt="cat" state="0" id="p2">
+        <img src="https://loremflickr.com/cache/resized/65535_48063959063_bd8c584c3c_m_175_175_nofilter.jpg" alt="cat" state="0" id="p3">
+        <img src="https://loremflickr.com/cache/resized/65535_40682177963_4b7cf45443_m_175_175_nofilter.jpg" alt="cat" state="0" id="p4">
+        <img src="https://loremflickr.com/cache/resized/65535_48289774571_82b4a430da_n_175_175_nofilter.jpg" alt="cat" state="0" id="p5">
+        <img src="https://loremflickr.com/cache/resized/65535_48437345841_29f832b944_m_175_175_nofilter.jpg" alt="cat" state="0" id="p6">
+        <img src="https://loremflickr.com/cache/resized/65535_48147336652_004a945a14_n_175_175_nofilter.jpg" alt="cat" state="0" id="p7">
+        <img src="https://loremflickr.com/cache/resized/65535_33896018938_82c7d91413_n_175_175_nofilter.jpg" alt="cat" state="0" id="p8">
+        <img src="https://loremflickr.com/cache/resized/65535_47993844162_30e0f5fcdb_175_175_nofilter.jpg" alt="cat" state="0" id="p9">
+        <img src="https://loremflickr.com/cache/resized/65535_48328922591_e664e57c07_n_175_175_nofilter.jpg" alt="cat" state="0" id="p10">
+        <img src="https://loremflickr.com/cache/resized/65535_46711948185_09086debf1_n_175_175_nofilter.jpg" alt="cat" state="0" id="p11">
     </div>
 
     <div id="before-footer"></div>
@@ -108,7 +110,28 @@ footer{
 
 <script type="text/javascript">
 //creating logic for game for now, will transition to React later
+//grab div, update state, state will decide if lose or win
+var imgArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
+$("img").on("click", function() {
+    var id = $(this).attr("id");
+    var state = $(this).attr("state");
+    if (state === "1") {
+        loser();
+    } else {
+        $(this).attr("state", "1");
+        render();
+    }
+});
+
+render = () => {
+    alert("I'm moving the pictures, but not really.");
+}
+
+
+loser = () => {
+    alert("You lose!");
+}
 
 </script>
 
