@@ -11,7 +11,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
+    <!--Got milk-SHAKES?-->
+    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 <style>
 body {text-align: center;}
 #header {
@@ -52,7 +54,7 @@ img:hover {
     background-image: url("background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 footer{
@@ -73,10 +75,13 @@ footer{
                 <h1><strong>Clicky Game</strong></h1>
             </div>
             <div class="col-sm">
-                Click an Image to Begin!
+                <span id="update">Click an Image to Begin!</span>
             </div>
             <div class="col-sm">
-                Score: 0 | Top: 0
+                <span>Score: </span> 
+                <span id="score">0</span>
+                <span> | Top: </span>
+                <span id="topScore">0</span>
             </div>
         </div>
     </div>
@@ -86,7 +91,7 @@ footer{
         <h2>Click on an image to earn points, but don't click on any more than once!</h2>
     </div>
 
-    <div class="container">
+    <div class="container" id="images">
         <img src="https://loremflickr.com/cache/resized/65535_47980744442_824387e41d_n_175_175_nofilter.jpg" alt="cat" state="0" id="p0">
         <img src="https://loremflickr.com/cache/resized/65535_47666569042_20ec59b4ef_n_175_175_nofilter.jpg" alt="cat" state="0" id="p1">
         <img src="https://loremflickr.com/cache/resized/65535_48417808626_5ac77ce68f_m_175_175_nofilter.jpg" alt="cat" state="0" id="p2">
@@ -114,23 +119,51 @@ footer{
 var imgArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 $("img").on("click", function() {
-    var id = $(this).attr("id");
     var state = $(this).attr("state");
     if (state === "1") {
         loser();
     } else {
+        $("#update").text("You guessed correctly!");
         $(this).attr("state", "1");
-        render();
+        var score = parseInt($("#score").text()) + 1;
+        $("#score").text(score);
+        
+        var topScore = $("#topScore").text();
+        if (score > topScore) {
+            $("#topScore").text(score);
+        }
+
+        if ($("#score").text() === "12") {
+            winner();
+        } else {
+            render();
+        }
     }
 });
 
-render = () => {
-    alert("I'm moving the pictures, but not really.");
+setUp = () => {
+    //set all states to 0;
+    $("img").each(function() {
+        $(this).attr("state", "0");
+    })
+    $("#score").text(0);
 }
 
+render = () => {
+    //alert("I'm moving the pictures, but not really.");
+}
+
+winner = () => {
+    $("#update").text("Meow Chicken Meow Meow!  You won!");
+    setUp();
+}
 
 loser = () => {
-    alert("You lose!");
+    $("#update").text("You guessed incorrectly!");
+    //Poor cats look like they're having seizures :(
+    $("#images").effect( "shake", {times:6}, 500);
+    //alert("You lose!");
+    setUp();
 }
 
 </script>
