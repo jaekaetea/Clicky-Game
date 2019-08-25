@@ -10,13 +10,70 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<style>
+body {text-align: center;}
+#header {
+    background-color: #00008b;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+}
+.col-sm {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#instructions {
+    padding: 100px;
+}
+img {
+    margin: 20px;
+    border: white 5px solid;
+    box-shadow: 5px 5px 10px 5px grey;
+}
+
+</style>
+
 </head>
 
 <body>
+    <div class="container-fluid" id="header">
+        <div class="row">
+            <div class="col-sm">
+                <h1><strong>Clicky Game</strong></h1>
+            </div>
+            <div class="col-sm">
+                Click an Image to Begin!
+            </div>
+            <div class="col-sm">
+                Score: 0 | Top: 0
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="instructions">
+        <h1>Clicky Game!</h1>
+        <h2>Click on an image to earn points, but don't click on any more than once!</h2>
+    </div>
 
     <div class="container">
-        Pictures
+        <img src="https://loremflickr.com/cache/resized/65535_47980744442_824387e41d_n_175_175_nofilter.jpg" alt="cat" state="0" id="p1">
+        <img src="https://loremflickr.com/cache/resized/65535_47666569042_20ec59b4ef_n_175_175_nofilter.jpg" alt="cat" state="0" id="p2">
+        <img src="https://loremflickr.com/cache/resized/65535_48417808626_5ac77ce68f_m_175_175_nofilter.jpg" alt="cat" state="0" id="p3">
+        <img src="https://loremflickr.com/cache/resized/65535_48063959063_bd8c584c3c_m_175_175_nofilter.jpg" alt="cat" state="0" id="p4">
+        <img src="https://loremflickr.com/cache/resized/65535_40682177963_4b7cf45443_m_175_175_nofilter.jpg" alt="cat" state="0" id="p5">
+        <img src="https://loremflickr.com/cache/resized/65535_48289774571_82b4a430da_n_175_175_nofilter.jpg" alt="cat" state="0" id="p6">
+        <img src="https://loremflickr.com/cache/resized/65535_48437345841_29f832b944_m_175_175_nofilter.jpg" alt="cat" state="0" id="p7">
+        <img src="https://loremflickr.com/cache/resized/65535_48147336652_004a945a14_n_175_175_nofilter.jpg" alt="cat" state="0" id="p8">
+        <img src="https://loremflickr.com/cache/resized/65535_33896018938_82c7d91413_n_175_175_nofilter.jpg" alt="cat" state="0" id="p9">
+        <img src="https://loremflickr.com/cache/resized/65535_47993844162_30e0f5fcdb_175_175_nofilter.jpg" alt="cat" state="0" id="p10">
+        <img src="https://loremflickr.com/cache/resized/65535_48328922591_e664e57c07_n_175_175_nofilter.jpg" alt="cat" state="0" id="p11">
+        <img src="https://loremflickr.com/cache/resized/65535_46711948185_09086debf1_n_175_175_nofilter.jpg" alt="cat" state="0" id="p12">
     </div>
+
+    <!--Add Footer Later-->
 
 <script type="text/javascript">
 //creating logic for game for now, will transition to React later
