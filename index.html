@@ -4,16 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Clicky Game</title>
+    <title>Clicky Game!</title>
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <!--Got milk-SHAKES?-->
-    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 <style>
 body {text-align: center;}
 #header {
@@ -74,7 +71,7 @@ footer{
             <div class="col-sm">
                 <h1><strong>Clicky Game</strong></h1>
             </div>
-            <div class="col-sm">
+            <div class="col-sm" id="updates">
                 <span id="update">Click an Image to Begin!</span>
             </div>
             <div class="col-sm">
@@ -110,13 +107,15 @@ footer{
 
     <!--Add Footer Later-->
     <footer>
-        Footer.
+        Clicky Game!
     </footer>
 
+<!--Got milk-SHAKES?-->
+<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 <script type="text/javascript">
-//creating logic for game for now, will transition to React later
-//grab div, update state, state will decide if lose or win
-var imgArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+var imgArray = ["p0", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11"];
 
 $("img").on("click", function() {
     var state = $(this).attr("state");
@@ -150,20 +149,34 @@ setUp = () => {
 }
 
 render = () => {
-    //alert("I'm moving the pictures, but not really.");
+    shuffleArray(imgArray);
+    console.log(imgArray);
+    for (var i = 0; i < imgArray.length; i++) {
+        var choosen = document.getElementById(imgArray[i]);
+        $("#images").append(choosen);
+    };
 }
 
 winner = () => {
     $("#update").text("Meow Chicken Meow Meow!  You won!");
+    alert("Meow Chicken Meow Meow!  You won!");
     setUp();
 }
 
 loser = () => {
     $("#update").text("You guessed incorrectly!");
-    //Poor cats look like they're having seizures :(
     $("#images").effect( "shake", {times:6}, 500);
-    //alert("You lose!");
     setUp();
+}
+
+shuffleArray = (array) => {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
 }
 
 </script>
