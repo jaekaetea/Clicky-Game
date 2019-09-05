@@ -79,7 +79,7 @@ class App extends Component {
         <Instructions/>
         <div className="container">
           {this.state.List.map(kitty => (
-            <Cats src={kitty.src} id={kitty.id} state={kitty.state} clicky={this.clicky}/>
+            <Cats src={require(kitty.src)} id={kitty.id} state={kitty.state} clicky={this.clicky}/>
           ))}
         </div>
         <BeforeFooter/>
