@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = (props) => (
-    <div className="container-fluid" className="header">
+    <div className="container-fluid header">
         <div className="row">
             <div className="col-sm">
                 <h1><strong>Clicky Game</strong></h1>
