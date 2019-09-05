@@ -9,20 +9,6 @@ import List from "./List.json";
 import BeforeFooter from "./components/BeforeFooter";
 import Footer from "./components/Footer";
 
-//y u break when deploy?
-import cat01 from "./pics/cat01.png"
-import cat02 from "./pics/cat02.png"
-import cat03 from "./pics/cat03.png"
-import cat04 from "./pics/cat04.png"
-import cat05 from "./pics/cat05.png"
-import cat06 from "./pics/cat06.png"
-import cat07 from "./pics/cat07.png"
-import cat08 from "./pics/cat08.png"
-import cat09 from "./pics/cat09.png"
-import cat10 from "./pics/cat10.png"
-import cat11 from "./pics/cat11.png"
-import cat12 from "./pics/cat12.png"
-
 let score = 0;
 let topScore = 0;
 
@@ -93,7 +79,7 @@ class App extends Component {
         <Instructions/>
         <div className="container">
           {this.state.List.map(kitty => (
-            <Cats src={kitty.src} id={kitty.id} state={kitty.state} clicky={this.clicky}/>
+            <Cats src={require(kitty.src)} id={kitty.id} state={kitty.state} clicky={this.clicky}/>
           ))}
         </div>
         <BeforeFooter/>
