@@ -8,7 +8,7 @@ Watch them shuffle around trying not to get caught!
 
 You gotta get 'em all!
 
-![cats](cats.pngs)
+![cats](cats.png)
 
 ## Overview
 
