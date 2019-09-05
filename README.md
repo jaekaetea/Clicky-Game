@@ -12,7 +12,7 @@ You gotta get 'em all!
 
 - - -
 
-Click on their faces here: [Clicky Game](https://jaekaetea.github.io/Clicky-Game/)
+Click on their faces here: [Clicky Game](https://jaekaetea.github.io/clicky-game/)
 
 ## Overview
 
