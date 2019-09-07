@@ -17,10 +17,12 @@ class App extends Component {
     List,
     score: 0, 
     topScore: 0,
+    myId: "test",
     message: "Click an Image to Begin!"
   };
 
   clicky = (kitty) => {
+    this.setState({ myId: "none"});
     const List = this.state.List;
     const clicked = List.filter(List => List.id === kitty.id);
 
@@ -33,7 +35,8 @@ class App extends Component {
       this.setState({
         List: List,
         score: 0,
-        message: "You guessed incorrectly!"
+        message: "You guessed incorrectly!",
+        myId: "shake"
       });
     }
     else {
@@ -53,7 +56,13 @@ class App extends Component {
       this.setState({ List });
 
       if (score === 12) {
+        for (var i = 0; i < List.length; i++) {
+          List[i].state = "0";
+        }
+
         this.setState({
+          List: List,
+          myId: "shake2",
           message: "Meow Chicken Meow Meow!  You won!"
         });
         alert("Meow Chicken Meow Meow!  You won!");
@@ -77,7 +86,7 @@ class App extends Component {
       <div>
         <Header score={this.state.score} topScore={this.state.topScore} message={this.state.message}/>
         <Instructions/>
-        <div className="container">
+        <div className="container" id={this.state.myId}>
           {this.state.List.map(kitty => (
             <Cats src={kitty.src} id={kitty.id} state={kitty.state} clicky={this.clicky}/>
           ))}
